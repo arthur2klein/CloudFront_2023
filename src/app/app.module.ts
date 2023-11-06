@@ -12,6 +12,11 @@ import { ProfilComponent } from './pages/profil/profil.component';
 import { EvenementsComponent } from './pages/evenements/evenements.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { ErreurComponent } from './pages/erreur/erreur.component';
+import { MentionsComponent } from './pages/mentions/mentions.component';
+import { RgpdComponent } from './pages/rgpd/rgpd.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
     ProfilComponent,
     EvenementsComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ErreurComponent,
+    MentionsComponent,
+    RgpdComponent,
+    ContactComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

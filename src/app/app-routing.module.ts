@@ -6,6 +6,10 @@ import { UsersComponent } from './pages/users/users.component';
 import { EvenementsComponent } from './pages/evenements/evenements.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { MentionsComponent } from './pages/mentions/mentions.component';
+import { RgpdComponent } from './pages/rgpd/rgpd.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
 	{path: '', component:AccueilComponent},
@@ -14,6 +18,10 @@ const routes: Routes = [
 	{path: 'evenements', component:EvenementsComponent},
 	{path: 'inscription', component:InscriptionComponent},
 	{path: 'connexion', component:ConnexionComponent},
+	{path: 'mentions', component:MentionsComponent},
+	{path: 'rgpd', component:RgpdComponent},
+	{path: 'contact', component:ContactComponent},
+	{path: '**', component:ErrorComponent},
 ];
 
 @NgModule({
