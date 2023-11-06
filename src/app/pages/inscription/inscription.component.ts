@@ -20,6 +20,5 @@ export class InscriptionComponent {
 			console.error("The two password must be identical.");
 			return;
 		}
-		users.create(login, password);
 	}
 }
