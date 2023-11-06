@@ -3,30 +3,31 @@
 	<h2> Laissez nous un message </h2>
 	<form (submit)="coucouToi()">
 		<label> Nom </label>
-		<input name="nom" [(ngModel)]="contact.nom">
+		<input name="nom" [(ngModel)]="contact.nom" #ctlNom="ngModel" required minlength="8"/>
+		<span *ngIf="ctlNom.value.length<8"> Le champ doit avoir au moins 8 caractères.</span> 
 
-		<label> Prenom <label>
-		<input name="prenom" [(ngModel)]="contact.prenom">
+		<label> Prenom </label>
+		<input name="prenom" [(ngModel)]="contact.prenom"/>
 
-		<label> Age <label>
+		<label> Age </label>
 		<input name="age" [(ngModel)]="contact.age">
 
-		<label> Rue <label>
+		<label> Rue </label>
 		<input name="rue" [(ngModel)]="contact.adresse!.rue">
 
-		<label> Ville <label>
+		<label> Ville </label>
 		<input name="ville" [(ngModel)]="contact.adresse!.ville">
 
-		<label> Code Postal <label>
+		<label> Code Postal </label>
 		<input name="code_postal" [(ngModel)]="contact.adresse!.code_postal">
 
-		<label> Téléphone <label>
+		<label> Téléphone </label>
 		<input name="telephone" [(ngModel)]="contact.telephone">
 
-		<label> Email <label>
+		<label> Email </label>
 		<input name="email" [(ngModel)]="contact.email">
 
-		<label> Un commentaire? <label>
+		<label> Un commentaire? </label>
 		<input name="infos" [(ngModel)]="contact.infos">
 		<button> Envoyer </button>
 	<form>
