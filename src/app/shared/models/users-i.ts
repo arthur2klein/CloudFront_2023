@@ -4,8 +4,18 @@ export interface UsersI {
 	email: string;
 	status: string;
 }
-interface ContactI {
-	tel: string;
-	mobile: string;
+export interface ContactI {
+	nom: string;
+	prenom: string;
+	age: number;
+	adresse?: AdresseI;
+	telephone: string;
 	email: string;
+	status?: string;
+	infos?: string;
+}
+interface AdresseI {
+	rue: string,
+	code_postal: number;
+	ville: string;
 }
