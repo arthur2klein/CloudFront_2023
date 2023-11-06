@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gestionnaire-soiree';
+  soustitre: string = "sous-titre";
+  moustache: string = "Ceci est une moustache";
+  liste_moustache: Array<string> = ["Moustache", "Favoris"];
+
+  constructor() {}
+
+  peupleMoustaches() {
+	  console.log('Peuple moustache appelé');
+  }
 }
