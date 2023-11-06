@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'gestionnaire-soiree';
-  soustitre: string = "sous-titre";
-  moustache: string = "Ceci est une moustache";
-  liste_moustache: Array<string> = ["Moustache", "Favoris"];
-
   constructor() {}
 
   peupleMoustaches() {
