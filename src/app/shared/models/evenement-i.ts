@@ -1,8 +1,13 @@
 import { UsersI } from 'src/app/shared/models/users-i';
 
 export interface EvenementI {
-	lieu: string;
-	date: Date;
-	organisateur: UsersI;
-	participants: Array<UsersI>;
+	titre: string;
+	data: number | Date;
+	places: number;
+	horaires: HoraireI;
+	info?: string;
+}
+interface HoraireI {
+	debut: string;
+	fin: string;
 }

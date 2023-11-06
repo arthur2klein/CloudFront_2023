@@ -2,16 +2,20 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Lieu</th>
-				<th>Date</th>
-				<th>Organisateur</th>
+				<th>Titre</th>
+				<th>Nombre de places</th>
+				<th>Début</th>
+				<th>Fin</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let e of listeEvents">
-				<td>{{ e.lieu }}</td>
-				<td>{{ e.date }}</td>
-				<td>{{ e.organisateur.nom + " " + e.organisateur.prenom }}</td>
+				<td>{{ e.titre }}</td>
+				<td>{{ e.places }}</td>
+				<td>{{ e.horaires.debut }}</td>
+				<td>{{ e.horaires.fin }}</td>
+				<td>{{ e.data }}</td>
 			</tr>
 		</tbody>
 	</table>

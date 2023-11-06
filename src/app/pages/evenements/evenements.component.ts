@@ -10,15 +10,10 @@ import { UsersI } from 'src/app/shared/models/users-i';
 export class EvenementsComponent {
 	listeEvents: Array<EvenementI> = [
 		{
-			lieu: "Pau",
-			date: new Date('2023-11-06T15:11:00'),
-			organisateur: {
-				nom: "Pépito",
-				prenom: "Micolassonne",
-				email: "pepito@yahoo.fr",
-				status: "admin",
-			},
-			participants: [],
+			titre: "Démarrage du cours Angular",
+			data: Date.now(),
+			places: 22,
+			horaires: {debut: "Ce main", fin: "Plus tard"},
 		},
 	];
 
