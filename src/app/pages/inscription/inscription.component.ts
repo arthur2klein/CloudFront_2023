@@ -11,6 +11,9 @@ export class InscriptionComponent {
 
 	formData = {
 		login: '',
+		nom: '',
+		prenom: '',
+		email: '',
 		password: '',
 		validation_password: '',
 	};
