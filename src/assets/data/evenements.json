@@ -1,0 +1,14 @@
+[
+	{
+		"titre": "Démarrage du cours Angular",
+		"data": 1234,
+		"places": 22,
+		"horaires": {"debut": "Ce matin", "fin": "Plus tard"}
+	},
+	{
+		"titre": "Poursuite du cours de Angular",
+		"data": 5894,
+		"places": 22,
+		"horaires": {"debut": "Demain matin", "fin": "Demain soir"}
+	}
+]

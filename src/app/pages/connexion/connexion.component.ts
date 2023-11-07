@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-connexion',
@@ -8,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ConnexionComponent {
+	constructor(public auth: AuthService) {}
+
 	title = 'Se connecter';
 
 	formData = {
@@ -16,6 +19,9 @@ export class ConnexionComponent {
 	};
 
 	onSubmit() {
-		console.log("Submitted: ", this.formData);
+		this.auth.authentification(
+			this.formData.login,
+			this.formData.password
+		);
 	}
 }

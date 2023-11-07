@@ -17,6 +17,7 @@ import { MentionsComponent } from './pages/mentions/mentions.component';
 import { RgpdComponent } from './pages/rgpd/rgpd.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ErrorComponent } from './pages/error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-	FormsModule
+	FormsModule,
+	HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

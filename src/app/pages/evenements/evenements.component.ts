@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EvenementI } from 'src/app/shared/models/evenement-i';
 import { UsersI } from 'src/app/shared/models/users-i';
+import { EvenementsService } from 'src/app/shared/services/evenements.service';
 
 @Component({
   selector: 'app-evenements',
@@ -8,13 +8,5 @@ import { UsersI } from 'src/app/shared/models/users-i';
   styleUrls: ['./evenements.component.css']
 })
 export class EvenementsComponent {
-	listeEvents: Array<EvenementI> = [
-		{
-			titre: "Démarrage du cours Angular",
-			data: Date.now(),
-			places: 22,
-			horaires: {debut: "Ce main", fin: "Plus tard"},
-		},
-	];
-
+	constructor(public events: EvenementsService) {}
 }
