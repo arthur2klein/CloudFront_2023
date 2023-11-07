@@ -1,33 +1,34 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UsersI } from 'src/app/shared/models/users-i';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  session_data: any = [];
+  user!: UsersI;
 
   authID: {id: string, mdp: string} = {
 	  id: '',
 	  mdp: ''
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(
+	  private http: HttpClient,
+	  private router: Router,
+  ) { }
 
-  authentification(id: string, mdp: string) {
+  authentification() {
 	  // Doit appeler le fichier heidi@heidi64.json sachant que heidi est l'id
 	  // saisi et heidi64 le mot de passe
 	  // Ça donnera une concaténation sur la requête http comme celle-ci:
-	 // `$(this.authId.id}@$(this.authID.mdp).json`
-	  this.http.get(`assets/data/ids/${id}@${mdp}.json`).subscribe(
+	 // `$(this.authID.id}@$(this.authID.mdp).json`
+	  this.http.get<UsersI>(`assets/data/ids/${this.authID.id}@${this.authID.mdp}.json`).subscribe(
 		  {
 			  next:(ev) => {
-				  console.log("Données reçues du JSON", ev);
-				  this.session_data = ev;
-				  this.authID = {
-					  id: id,
-					  mdp: mdp
-				  };
+				  this.user = ev;
+				  this.router.navigateByUrl('/');
 			  },
 			  error: (er) => console.log('User not found'),
 			  complete:() => console.log('Les événements ont été chargés')

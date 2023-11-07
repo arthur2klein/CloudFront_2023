@@ -12,16 +12,4 @@ export class ConnexionComponent {
 	constructor(public auth: AuthService) {}
 
 	title = 'Se connecter';
-
-	formData = {
-		login: '',
-		password: '',
-	};
-
-	onSubmit() {
-		this.auth.authentification(
-			this.formData.login,
-			this.formData.password
-		);
-	}
 }
