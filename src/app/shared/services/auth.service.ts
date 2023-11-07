@@ -13,9 +13,12 @@ export class AuthService {
   };
 
   constructor(private http: HttpClient) { }
+
   authentification(id: string, mdp: string) {
-	  //Doit appeler le fichier heidi@heidi64.json sachant que heidi est l'id saisi et haidi64 le mot de passe
-	  //Ça donnera une concaténation sur la requête http comme celle-ci: `$(this.authId.id}@$(this.authID.mdp).json`
+	  // Doit appeler le fichier heidi@heidi64.json sachant que heidi est l'id
+	  // saisi et heidi64 le mot de passe
+	  // Ça donnera une concaténation sur la requête http comme celle-ci:
+	 // `$(this.authId.id}@$(this.authID.mdp).json`
 	  this.http.get(`assets/data/ids/${id}@${mdp}.json`).subscribe(
 		  {
 			  next:(ev) => {
