@@ -8,5 +8,6 @@ import { EvenementsService } from 'src/app/shared/services/evenements.service';
   styleUrls: ['./evenements.component.css']
 })
 export class EvenementsComponent {
+	filtre: string = '';
 	constructor(public events: EvenementsService) {}
 }
