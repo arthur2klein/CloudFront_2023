@@ -18,6 +18,7 @@ import { RgpdComponent } from './pages/rgpd/rgpd.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EventsPipe } from './shared/pipes/events.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     RgpdComponent,
     ContactComponent,
     ErrorComponent,
+    EventsPipe,
   ],
   imports: [
     BrowserModule,

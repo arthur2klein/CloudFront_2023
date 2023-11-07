@@ -2,7 +2,7 @@ import { UsersI } from 'src/app/shared/models/users-i';
 
 export interface EvenementI {
 	titre: string;
-	data: number | Date;
+	date: number | Date;
 	places: number;
 	horaires: HoraireI;
 	info?: string;
