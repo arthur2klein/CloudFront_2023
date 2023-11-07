@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
-footer {
+app-footer {
+	position: fixed;
 	bottom: 0;
 }
 
 nav ul {
 	width: 100vw;
 	display: flex;
-	flex-direction: row;
 	list-style-type: none;
+}
+
+nav ul li {
+	flex: 1;
 }
 
 html, body{
