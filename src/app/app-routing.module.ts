@@ -21,6 +21,7 @@ const routes: Routes = [
 	{path: 'mentions', component:MentionsComponent},
 	{path: 'rgpd', component:RgpdComponent},
 	{path: 'contact', component:ContactComponent},
+	{path: 'organisation' , loadChildren: () => import('./organisation/organisation.module').then(m => m.OrganisationModule)},
 	{path: '**', component:ErrorComponent},
 ];
 
