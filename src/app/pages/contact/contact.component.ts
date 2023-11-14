@@ -11,7 +11,7 @@ export class ContactComponent {
 		nom: '',
 		prenom: '',
 		age: 0,
-		adresse: {rue: '', code_postal: 0, ville: '',},
+		adresse: {rue: '', code_postal: '', ville: '',},
 		telephone: '',
 		email: '',
 		status: '',

@@ -14,7 +14,7 @@
 		<tbody>
 			<tr *ngFor="let e of events.listeEvents | events: filtre ; let i = index">
 				<td>{{ i }}</td>
-				<td>{{ e.titre | uppercase }}</td>
+				<td><a [routerLink]="['/evenement', e.date]">{{ e.titre | uppercase }}</a></td>
 				<td>{{ e.places }}</td>
 				<td>{{ e.horaires.debut }}</td>
 				<td>{{ e.horaires.fin }}</td>

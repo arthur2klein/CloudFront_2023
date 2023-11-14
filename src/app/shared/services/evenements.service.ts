@@ -24,4 +24,7 @@ export class EvenementsService {
 		  }
 	  )
   }
+  getEvent(id: number): EvenementI {
+	  return this.listeEvents.filter(d => d.date == id) [0];
+  }
 }

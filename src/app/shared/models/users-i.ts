@@ -19,6 +19,6 @@ export interface ContactI {
 }
 interface AdresseI {
 	rue: string,
-	code_postal: number;
+	code_postal: string;
 	ville: string;
 }

@@ -19,6 +19,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventsPipe } from './shared/pipes/events.pipe';
+import { HeaderComponent } from './template/header/header.component';
+import { EvenementComponent } from './pages/evenement/evenement.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { EventsPipe } from './shared/pipes/events.pipe';
     ContactComponent,
     ErrorComponent,
     EventsPipe,
+    HeaderComponent,
+    EvenementComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
+app-root {
+	display: grid;
+	grid-template:
+		"header header" fit-content(1em)
+		"main main" auto
+		"footer footer" fit-content(1em);
+	height: 100%;
+	width: 100%;
+}
+
+app-header {
+	grid-area: header;
+}
+
 app-footer {
-	position: fixed;
-	bottom: 0;
+	grid-area: footer;
+}
+
+app-footer, app-header {
+	background-color: #AAAAAAAA;
 }
 
 nav ul {
 	width: 100vw;
 	display: flex;
+	justify-content: space-between;
+	padding: 0;
+	padding-left: 5%;
+	padding-right: 5%;
 	list-style-type: none;
 }
 
 nav ul li {
-	flex: 1;
+	padding: 0.3em;
+	background-color: #00000033;
+	color: #FFFFFF;
+	border: solid 1px #EEEEEE;
 }
 
 html, body{
@@ -24,19 +48,16 @@ html, body{
     font-family: 'Raleway', sans-serif;
 }
 
-body > * {
-	padding: 10px 15px;
-}
-
 body  * {
 	box-sizing: border-box;
 }
 
 main {
+	padding: min(20%, 2em);
 	width: 100vw;
-	height: calc(100vh - var(--menu) - var(--menu));
 	overflow-y: auto;
 	overflow-x: hidden;
+	grid-area: main;
 }
 
 body > header, body > footer {

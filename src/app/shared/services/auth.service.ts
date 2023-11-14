@@ -8,6 +8,7 @@ import { UsersI } from 'src/app/shared/models/users-i';
 })
 export class AuthService {
   user!: UsersI;
+  isLoggedIn: boolean = false;
 
   authID: {id: string, mdp: string} = {
 	  id: '',
@@ -29,6 +30,7 @@ export class AuthService {
 			  next:(ev) => {
 				  this.user = ev;
 				  this.router.navigateByUrl('/');
+				  this.isLoggedIn = true;
 			  },
 			  error: (er) => console.log('User not found'),
 			  complete:() => console.log('Les événements ont été chargés')
