@@ -16,7 +16,8 @@
     "horaires": {
       "debut": "Ce matin",
       "fin": "Plus tard"
-    }
+    },
+	"image_url": "https://media.istockphoto.com/id/636379014/photo/hands-forming-a-heart-shape-with-sunset-silhouette.jpg?s=612x612&w=0&k=20&c=CgjWWGEasjgwia2VT7ufXa10azba2HXmUDe96wZG8F0="
   },
   {
     "titre": "Modularisation des trucs",

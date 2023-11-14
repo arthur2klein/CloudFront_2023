@@ -15,12 +15,14 @@ export class EvenementComponent implements OnInit {
 	constructor(
 		public events: EvenementsService,
 		private route:ActivatedRoute
-	) {}
+	) {
+	}
 	
 	ngOnInit(): void {
 		this.id = Number(this.route.snapshot.paramMap.get('barbapapa')) || -1;
 		if (this.id != -1) {
-			this.target = this.events.getEvent(this.id);
+			this.events.getEvent(this.id).subscribe(x => {this.target = x});
+			console.log("this.target = ", this.target);
 		}
 	}
 

@@ -1,5 +1,5 @@
 <section>
 	<h2> {{ target.titre }} </h2>
 	<blockquote> {{ target.info }} </blockquote>
-	<img *NgIf="target.image_url" src={{ target.image_url }}/>
+	<img [src]=target.image_url width=50%/>
 </section>
