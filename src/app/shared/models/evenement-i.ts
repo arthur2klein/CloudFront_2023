@@ -6,6 +6,7 @@ export interface EvenementI {
 	places: number;
 	horaires: HoraireI;
 	info?: string;
+	image_url?: string;
 }
 interface HoraireI {
 	debut: string;

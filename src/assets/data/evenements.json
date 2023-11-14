@@ -6,7 +6,8 @@
     "horaires": {
       "debut": "Hier matin",
       "fin": "Hier soir"
-    }
+    },
+	"image_url": "assets/images/panda.webp"
   },
   {
     "titre": "Voir la partie dynamique des données dans Angular",
