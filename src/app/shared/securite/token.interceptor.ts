@@ -1,5 +1,6 @@
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import {
 	HttpRequest,
 	HttpHandler,
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-	etetes: any;
+	entetes: any;
 
 	constructor(private user: AuthService) {}
 
@@ -34,3 +35,4 @@ export class TokenInterceptor implements HttpInterceptor {
 			return next.handle(request);
 		}
 	}
+}

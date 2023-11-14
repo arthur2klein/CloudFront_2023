@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,10 +18,11 @@ import { MentionsComponent } from './pages/mentions/mentions.component';
 import { RgpdComponent } from './pages/rgpd/rgpd.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { HttpClientModule } from '@angular/common/http';
 import { EventsPipe } from './shared/pipes/events.pipe';
 import { HeaderComponent } from './template/header/header.component';
 import { EvenementComponent } from './pages/evenement/evenement.component';
+import { TokenInterceptor } from './shared/securite/token.interceptor';
+import { Auth401Interceptor } from './shared/securite/auth401.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,18 @@ import { EvenementComponent } from './pages/evenement/evenement.component';
 	FormsModule,
 	HttpClientModule,
   ],
-  providers: [],
+  providers: [
+	  {
+		  provide: HTTP_INTERCEPTORS,
+		  useClass: Auth401Interceptor,
+		  multi: true
+	  },
+	  {
+		  provide: HTTP_INTERCEPTORS,
+		  useClass: TokenInterceptor,
+		  multi: true
+	  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
