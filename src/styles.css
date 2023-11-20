@@ -22,6 +22,18 @@ app-footer, app-header {
 	background-color: #AAAAAAAA;
 }
 
+h1 {
+    background-color: #99999944;
+}
+
+h2 {
+    background-color: #99999922;
+}
+
+p, h3 {
+    background-color: #99999911;
+}
+
 nav ul {
 	width: 100vw;
 	display: flex;
@@ -30,13 +42,29 @@ nav ul {
 	padding-left: 5%;
 	padding-right: 5%;
 	list-style-type: none;
+    :hover {
+        background-color: #666666FF;
+    }
 }
 
 nav ul li {
+    min-width: 6em;
 	padding: 0.3em;
-	background-color: #00000033;
+	background-color: #66666699;
 	color: #FFFFFF;
 	border: solid 1px #EEEEEE;
+    box-shadow: 0.2em 0.3em 1em #00000066;
+    border-top-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}
+
+fieldset {
+    border: none;
+}
+
+td {
+    border-bottom: dashed 1px black;
+    margin: 0;
 }
 
 html, body{
@@ -60,7 +88,13 @@ main {
 	grid-area: main;
 }
 
-body > header, body > footer {
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 form {

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gestionnairesoiree": {
+      "hosting": {
+        "gestionnaire-soiree": [
+          "gestionnairesoiree"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gestionnairesoiree"
+  }
+}

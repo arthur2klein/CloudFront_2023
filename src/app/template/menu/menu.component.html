@@ -6,6 +6,6 @@
 		<li routerLink = "/profil">Mon profil</li>
 		<li routerLink = "/utilisateurs">Ils se sont déjà inscrits</li>
 		<li routerLink = "/connexion" *ngIf="!auth.isLoggedIn">Se connecter</li>
-		<li routerLink = "/" (click)="auth.isLoggedIn = false" *ngIf="auth.isLoggedIn">Se déconnecter</li>
+		<li routerLink = "/" (click)="auth.fireSignOut()" *ngIf="auth.isLoggedIn">Se déconnecter</li>
 	</ul>
 </nav>

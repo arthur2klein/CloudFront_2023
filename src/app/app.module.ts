@@ -23,45 +23,66 @@ import { HeaderComponent } from './template/header/header.component';
 import { EvenementComponent } from './pages/evenement/evenement.component';
 import { TokenInterceptor } from './shared/securite/token.interceptor';
 import { Auth401Interceptor } from './shared/securite/auth401.interceptor';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    MenuComponent,
-    AccueilComponent,
-    UsersComponent,
-    ProfilComponent,
-    EvenementsComponent,
-    InscriptionComponent,
-    ConnexionComponent,
-    ErreurComponent,
-    MentionsComponent,
-    RgpdComponent,
-    ContactComponent,
-    ErrorComponent,
-    EventsPipe,
-    HeaderComponent,
-    EvenementComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-	FormsModule,
-	HttpClientModule,
-  ],
-  providers: [
-	  {
-		  provide: HTTP_INTERCEPTORS,
-		  useClass: Auth401Interceptor,
-		  multi: true
-	  },
-	  {
-		  provide: HTTP_INTERCEPTORS,
-		  useClass: TokenInterceptor,
-		  multi: true
-	  },
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		FooterComponent,
+		MenuComponent,
+		AccueilComponent,
+		UsersComponent,
+		ProfilComponent,
+		EvenementsComponent,
+		InscriptionComponent,
+		ConnexionComponent,
+		ErreurComponent,
+		MentionsComponent,
+		RgpdComponent,
+		ContactComponent,
+		ErrorComponent,
+		EventsPipe,
+		HeaderComponent,
+		EvenementComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpClientModule,
+		provideFirebaseApp(
+			() => initializeApp(
+				{
+					"projectId":"gestionnairesoiree",
+					"appId":"1:500118593188:web:a9eed62f212438081f9031",
+					"storageBucket":"gestionnairesoiree.appspot.com",
+					"apiKey":"AIzaSyCHcgfmj6tPKkck2gEG9JUuQoSxj8PMCHQ",
+					"authDomain":"gestionnairesoiree.firebaseapp.com",
+					"messagingSenderId":"500118593188"
+				}
+			)
+		),
+		provideAuth(() => getAuth()),
+		provideFirestore(() => getFirestore()),
+		provideDatabase(() => getDatabase()),
+		provideStorage(() => getStorage()),
+	],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: Auth401Interceptor,
+			multi: true
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true
+		},
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
