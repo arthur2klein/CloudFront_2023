@@ -3,9 +3,9 @@
 		<li routerLink = "/">Accueil</li>
 		<li routerLink = "/evenements">Événements</li>
 		<li routerLink = "/inscription">M'inscrire</li>
-		<li routerLink = "/profil">Mon profil</li>
+		<li routerLink = "/profil" *ngIf="auth.isLoggedIn()">Mon profil</li>
 		<li routerLink = "/utilisateurs">Ils se sont déjà inscrits</li>
-		<li routerLink = "/connexion" *ngIf="!auth.isLoggedIn">Se connecter</li>
-		<li routerLink = "/" (click)="auth.fireSignOut()" *ngIf="auth.isLoggedIn">Se déconnecter</li>
+		<li routerLink = "/connexion" *ngIf="!(auth.isLoggedIn())">Se connecter</li>
+		<li routerLink = "/" (click)="auth.fireSignOut()" *ngIf="auth.isLoggedIn()">Se déconnecter</li>
 	</ul>
 </nav>

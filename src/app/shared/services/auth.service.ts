@@ -2,16 +2,15 @@ import { Router } from '@angular/router';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsersI } from 'src/app/shared/models/users-i';
-import { Auth, signInWithEmailAndPassword, signOut, User, user } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, signOut, User, createUserWithEmailAndPassword } from '@angular/fire/auth';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AuthService {
-	user!: UsersI;
-	isLoggedIn: boolean = false;
+	profil!: UsersI;
 
-    firebaseUser!: User;
+    firebaseUser?: User = undefined;
 
 	authID: {id: string, mdp: string} = {
 		id: '',
@@ -38,15 +37,18 @@ export class AuthService {
 		).subscribe(
 			{
 				next:(ev) => {
-					this.user = ev;
+					this.profil = ev;
 					this.router.navigateByUrl('/');
-					this.isLoggedIn = true;
 				},
 				error: (er) => console.log('User not found', er),
                 complete:() => console.log('Les événements ont été chargés')
 			}
 		)
 	}
+
+    isLoggedIn() {
+        return !(this.firebaseUser === undefined);
+    }
 
     // Avec Firebase
     fireAuth() {
@@ -57,15 +59,26 @@ export class AuthService {
         ).then(infos => {
             this.firebaseUser = infos.user;
             console.log(infos, infos.user);
-            this.isLoggedIn = true;
         }).catch(er => console.log(er));
     }
 
     fireSignOut() {
         signOut(this.fire).then(() => {
-            this.isLoggedIn = false;
+            this.firebaseUser = undefined;
         }).catch((er) =>{
             console.log(er)
+        });
+    }
+
+    createUser(login: string, password: string) {
+        createUserWithEmailAndPassword(
+            this.fire,
+            login,
+            password
+        ).then((userInfos) => {
+            this.firebaseUser = userInfos.user;
+        }).catch((er) => {
+            console.log(er);
         });
     }
 }

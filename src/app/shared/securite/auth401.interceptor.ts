@@ -20,7 +20,6 @@ export class Auth401Interceptor implements HttpInterceptor {
     return next.handle(request).pipe(
 		erreur => {
 			if (erreur instanceof HttpErrorResponse && erreur.status == 401) {
-				this.user.isLoggedIn = false;
 				this.router.navigateByUrl('/connexion');
 			}
 			return erreur;

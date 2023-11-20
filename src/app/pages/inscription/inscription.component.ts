@@ -8,23 +8,26 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
-	constructor(public auth: AuthService) {}
-
 	title = 'S\'inscrire';
 
 	formData = {
 		login: '',
 		nom: '',
 		prenom: '',
-		email: '',
 		password: '',
 		validation_password: '',
 	};
+
+	constructor(public auth: AuthService) {}
 
 	onSubmit() {
 		if (this.formData.password != this.formData.validation_password) {
 			console.error("The two password must be identical.");
 			return;
 		}
+        this.auth.createUser(
+            this.formData.login,
+            this.formData.password
+        );
 	}
 }
