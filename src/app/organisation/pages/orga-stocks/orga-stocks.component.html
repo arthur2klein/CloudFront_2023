@@ -1,1 +1,41 @@
-<p>orga-stocks works!</p>
+<h1>Nos stocks</h1>
+<section>
+  <h2>Produits alimentaires</h2>
+  <table>
+    <tr>
+      <th>Article</th>
+      <th>Quantité</th>
+    </tr>
+    <tr *ngFor="let line of stocks_alimentaire | keyvalue">
+      <td>{{ line.key }}</td>
+      <td>{{ line.value }}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2>Meubles</h2>
+  <table>
+    <tr>
+      <th>Article</th>
+      <th>Quantité</th>
+    </tr>
+    <tr *ngFor="let line of stocks_meubles | keyvalue">
+      <td>{{ line.key }}</td>
+      <td>{{ line.value }}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2>Produits de ménage</h2>
+  <table>
+    <tr>
+      <th>Article</th>
+      <th>Quantité</th>
+    </tr>
+    <tr *ngFor="let line of stocks_menage | keyvalue">
+      <td>{{ line.key }}</td>
+      <td>{{ line.value }}</td>
+    </tr>
+  </table>
+</section>
+

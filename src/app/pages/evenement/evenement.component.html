@@ -1,5 +1,8 @@
 <section>
 	<h2> {{ target.titre }} </h2>
-	<blockquote> {{ target.info }} </blockquote>
+	<p> {{ target.info }} </p>
 	<img [src]=target.image_url width=50%/>
+  <p>{{ target.date | date:'dd/MM/yyyy'}} de {{ target.horaire.debut }} à {{ target.horaire.fin }}</p>
+  <button (click)="register()" *ngIf="!is_registered">M'inscrire</button>
+  <button (click)="unregister()" *ngIf="is_registered">Me desinscrire</button>
 </section>

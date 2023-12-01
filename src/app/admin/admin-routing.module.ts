@@ -9,8 +9,8 @@ const routes: Routes = [
 	{
 		path: '', component: AdminComponent, children: [
 			{path: '', component: AccueilComponent},
-			{path: '', component: GestionProfilsComponent},
-			{path: '', component: ParametresComponent},
+			{path: 'profils', component: GestionProfilsComponent},
+			{path: 'parametres', component: ParametresComponent},
 		]
 	},
 ];

@@ -15,7 +15,7 @@ export class ProfilComponent {
 		nom: '',
 		prenom: '',
         email: '',
-        status: ''
+        statut: ''
 	};
 
 	onSubmit() {

@@ -1,5 +1,8 @@
 <section>
-	<input name="filtre" [(ngModel)]="filtre"/>
+  <fieldset>
+    <label>Filtre: </label>
+    <input name="filtre" [(ngModel)]="filtre"/>
+  </fieldset>
 	<table>
 		<thead>
 			<tr>
@@ -8,18 +11,24 @@
 				<th>Nombre de places</th>
 				<th>Début</th>
 				<th>Fin</th>
-				<th>Status</th>
+				<th>Date</th>
+                <th>Info</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let e of events.listeEvents | events: filtre ; let i = index">
+			<tr *ngFor="let e of liste_events | events: filtre | slice:this.depart:depart + pas; let i = index">
 				<td>{{ i }}</td>
-				<td><a [routerLink]="['/evenement', e.date]">{{ e.titre | uppercase }}</a></td>
+				<td><a [routerLink]="['/evenement', e.id]">{{ e.titre | uppercase }}</a></td>
 				<td>{{ e.places }}</td>
-				<td>{{ e.horaires.debut }}</td>
-				<td>{{ e.horaires.fin }}</td>
-				<td>{{ e.date | date:'dd/MM/yyyy, hh:mm::ss'}}</td>
+				<td>{{ e.horaire.debut }}</td>
+				<td>{{ e.horaire.fin }}</td>
+				<td>{{ e.date | date:'dd/MM/yyyy'}}</td>
+                <td>{{ e.info }}</td>
 			</tr>
 		</tbody>
 	</table>
+    <article class="boutons_nav">
+        <button (click)="depart = depart - pas" *ngIf="depart > 0"> < </button>
+        <button (click)="depart = depart + pas" *ngIf="depart + pas < events.listeEvents.length"> > </button>
+    </article>
 </section>

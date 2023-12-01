@@ -1,28 +1,23 @@
-import { Component, OnDestroy } from '@angular/core';
-import { UsersI } from 'src/app/shared/models/users-i';
+import { Component } from '@angular/core';
+import { EvenementI } from 'src/app/shared/models/evenement-i';
 import { EvenementsService } from 'src/app/shared/services/evenements.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-evenements',
   templateUrl: './evenements.component.html',
   styleUrls: ['./evenements.component.css']
 })
-export class EvenementsComponent implements OnDestroy {
+export class EvenementsComponent {
 	filtre: string = '';
-	listener: Subscription;
+  depart: number = 0;
+  pas: number = 4;
+  liste_events: Array<EvenementI> = [];
 
 	constructor(public events: EvenementsService) {
-		this.listener = this.events.listeEvents$.subscribe(
-			{
-				next:evs => console.log('From Observable subscription', evs),
-				error:er => console.log(er),
-				complete:() => console.log('Data synchronized')
-			}
-		)
-	}
-
-	ngOnDestroy(): void {
-		this.listener.unsubscribe();
+    this.events.getAllEvents().then(success => {
+      if (success) {
+        this.liste_events = this.events.listeEvents;
+      }
+    });
 	}
 }

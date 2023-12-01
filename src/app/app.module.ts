@@ -28,6 +28,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
 	declarations: [
@@ -53,6 +55,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
+    MatSnackBarModule,
 		HttpClientModule,
 		provideFirebaseApp(
 			() => initializeApp(
@@ -70,6 +73,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 		provideFirestore(() => getFirestore()),
 		provideDatabase(() => getDatabase()),
 		provideStorage(() => getStorage()),
+  BrowserAnimationsModule,
 	],
 	providers: [
 		{

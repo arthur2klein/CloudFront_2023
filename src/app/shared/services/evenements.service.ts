@@ -1,35 +1,48 @@
 import { Injectable } from '@angular/core';
+import { Firestore, doc, collection, addDoc, setDoc, updateDoc, deleteDoc, getDoc, getDocs } from '@angular/fire/firestore';
 import { EvenementI } from 'src/app/shared/models/evenement-i';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EvenementsService {
   listeEvents: Array<EvenementI> = [];
-  listeEvents$: BehaviorSubject<Array<EvenementI>> =
-	  new BehaviorSubject([] as Array<EvenementI>);
 
-  constructor(private http: HttpClient) {
-	  this.getEvenements();
+  constructor(private store: Firestore) {
   }
 
-  getEvenements() {
-	  this.http.get<Array<EvenementI>>('assets/data/evenements.json').subscribe(
-		  {
-			  next:(ev) => {
-				  this.listeEvents = ev;
-				  this.listeEvents$.next(ev);
-			  },
-			  error: (er) => console.log(er),
-				  complete:() => console.log('Les événements ont été chargés')
-		  }
-	  )
+  async getAllEvents(): Promise<boolean> {
+      this.listeEvents = [];
+      return getDocs(collection(this.store, 'events'))
+      .then((us) => {
+          us.forEach(u => {
+              let data = u.data();
+              data['id'] = u.id;
+              this.listeEvents.push(data as EvenementI);
+          })
+          return true;
+      }).catch(er => {
+        console.log(er);
+        return false;
+      });
   }
-  getEvent(id: number): Observable<EvenementI> {
-	  return this.listeEvents$.pipe(map(data => {
-		  return data.filter(d => d.date == id) [0];
-	  }));
+
+  async getEvent(id: string): Promise<EvenementI|null> {
+    const my_doc = getDoc(doc(this.store, 'events', id));
+    return my_doc.then(
+      (ev) => {
+        let data = ev.data();
+        data!['id'] = ev.id;
+        return data as EvenementI;
+      }).catch(er => {
+        console.log(er);
+        return null;
+      });
+  }
+
+  createEvent(event: EvenementI) {
+    const event_without_id = { ...event};
+    const maCollection = collection(this.store, 'events');
+    addDoc(maCollection, event_without_id);
   }
 }

@@ -3,6 +3,7 @@
 		<li routerLink = "/mentions">Mentions légales</li>
 		<li routerLink = "/rgpd">RGPD</li>
 		<li routerLink = "/contact">Contact</li>
-		<li routerLink = "/organisation">Accès privé (organisation)</li>
+		<li routerLink = "/organisation" *ngIf="users.has_orga_right()">Accès organisation</li>
+		<li routerLink = "/admin" *ngIf="users.has_admin_right()">Accès administration</li>
 	</ul>
 </nav>

@@ -5,13 +5,16 @@ import { ProfilComponent } from './pages/profil/profil.component';
 import { UsersComponent } from './pages/users/users.component';
 import { EvenementsComponent } from './pages/evenements/evenements.component';
 import { EvenementComponent } from './pages/evenement/evenement.component';
-import { InscriptionComponent } from './pages/inscription/inscription.component';
+import {
+  InscriptionComponent
+} from './pages/inscription/inscription.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { MentionsComponent } from './pages/mentions/mentions.component';
 import { RgpdComponent } from './pages/rgpd/rgpd.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { authGuard } from './shared/securite/auth.guard';
+import { adminGuard } from './shared/securite/admin.guard';
 
 const routes: Routes = [
 	{path: '', component:AccueilComponent},
@@ -26,10 +29,20 @@ const routes: Routes = [
 	{path: 'contact', component:ContactComponent},
 	{
 		path: 'organisation',
-		loadChildren: () => import('./organisation/organisation.module').then(m => m.OrganisationModule),
+		loadChildren: async () => {
+      const m = await import('./organisation/organisation.module');
+      return m.OrganisationModule;
+    },
 		canActivate: [authGuard]
 	},
-	{path: 'admin' , loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+	{
+    path: 'admin',
+    loadChildren: async () => {
+      const m = await import('./admin/admin.module');
+      return m.AdminModule;
+    },
+		canActivate: [adminGuard]
+  },
 	{path: '**', component:ErrorComponent},
 ];
 

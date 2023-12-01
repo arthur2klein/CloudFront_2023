@@ -1,1 +1,25 @@
-<p>orga-events works!</p>
+<h1>Ajouter votre événement</h1>
+<form (ngSubmit)="onSubmit()">
+  <label>Titre:</label>
+	<input type="text" name="titre" [(ngModel)] = "form_event.titre" required>
+
+  <label>Date:</label>
+  <input type="date" id="date" [(ngModel)] = "date" required>
+
+	<label>Horaire de début:</label>
+	<input type="text" name="debut" [(ngModel)] = "form_event.horaire.debut" required>
+	<label>Horaire de fin:</label>
+	<input type="text" name="fin" [(ngModel)] = "form_event.horaire.fin" required>
+
+	<label>Image (lien):</label>
+	<input type="text" name="image_url" [(ngModel)] = "form_event.image_url">
+
+  <label>Places:</label>
+	<input type="text" name="places" [(ngModel)] = "form_event.places" required>
+
+  <label>Informations supplémentaires:</label>
+	<textarea type="text" name="places" [(ngModel)] = "form_event.info" rows="5">
+  </textarea>
+
+	<button type="submit">Enregistrer</button>
+</form>

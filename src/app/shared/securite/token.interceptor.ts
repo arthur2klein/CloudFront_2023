@@ -21,11 +21,11 @@ export class TokenInterceptor implements HttpInterceptor {
 		next: HttpHandler
 	): Observable<HttpEvent<unknown>> {
 		// If I'm connected and I have a token inside my profile
-		if (this.user.isLoggedIn() && this.user.profil.token!.length > 0) {
+		if (this.user.isLoggedIn() && this.user.profil!.token!.length > 0) {
 			// Creation of new headers
 			this.entetes = {
 				headers: new HttpHeaders(
-					{'Authorization': 'Bearer ' + this.user.profil.token}
+					{'Authorization': 'Bearer ' + this.user.profil!.token}
 				)
 			};
 			const httpToken = request.clone(this.entetes);

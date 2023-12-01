@@ -9,9 +9,8 @@
 	<label>Prenom:</label>
 	<input type="text" name="prenom" [(ngModel)] = "formData.prenom" required>
 
-    <input type="hidden" name="email", [(ngModel)] = "formData.email" value = "{{this.auth.profil.email}}"/>
-    <input type="hidden" name="status", [(ngModel)] = "formData.status" value = "{{this.auth.profil.status}}"/>
-
+    <input type="hidden" name="email" [(ngModel)]="formData.email" value="{{this.auth.firebaseUser!.email}}"/>
+    <input type="hidden" name="status" [(ngModel)]="formData.statut" value="{{this.auth.profil!.statut}}"/>
 
 	<button type="submit">Enregistrer</button>
 </form>

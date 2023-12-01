@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersI } from 'src/app/shared/models/users-i';
+import { UsersService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -7,19 +8,10 @@ import { UsersI } from 'src/app/shared/models/users-i';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-	listeUsers:Array<UsersI> = [
-		{
-			nom: "Pépito",
-			prenom: "Micolassonne",
-			email: "pepito@yahoo.fr",
-			status: "user"
-		},
-		{
-			nom: "Pincemi",
-			prenom: "Pincemoi",
-			email: "pincemi@pincemoi.fr",
-			status: "admin"
-		},
-	];
-
+    mapUsers:Map<string, UsersI> = new Map<string, UsersI>();
+    constructor(public users: UsersService) {}
+    ngOnInit() {
+        this.users.getAllUsers();
+        this.mapUsers = this.users.mapUsers;
+    }
 }

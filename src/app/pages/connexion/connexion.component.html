@@ -1,14 +1,10 @@
 <h1>{{ title }}</h1>
-<form (ngSubmit)="auth.fireAuth()">
-	<fieldset>
-		<label>Login:</label>
-		<input type="text" name="login" [(ngModel)] = "auth.authID.id" required>
-	</fieldset>
+<form (ngSubmit)="onSubmit()">
+  <label>Login:</label>
+  <input type="text" name="login" [(ngModel)] = "auth.authID.id" required>
 
-	<fieldset>
-		<label>Password:</label>
-		<input type="password" name="password" [(ngModel)] = "auth.authID.mdp" required>
-	</fieldset>
+  <label>Password:</label>
+  <input type="password" name="password" [(ngModel)] = "auth.authID.mdp" required>
 
 	<button type="submit">Connexion</button>
 	<button type="reset">Effacer</button>

@@ -12,8 +12,8 @@ export class EventsPipe implements PipeTransform {
 	  return listeEvents.filter(
 		  event => (
 			  event.titre.toLowerCase().indexOf(filtre) > -1 ||
-			  event.horaires.debut.toLowerCase().indexOf(filtre) > -1 ||
-			  event.horaires.fin.toLowerCase().indexOf(filtre) > -1
+			  event.horaire.debut.toLowerCase().indexOf(filtre) > -1 ||
+			  event.horaire.fin.toLowerCase().indexOf(filtre) > -1
 		 )
 	  );
   }

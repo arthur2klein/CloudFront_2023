@@ -9,11 +9,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let u of listeUsers">
-				<td>{{ u.nom }}</td>
-				<td>{{ u.prenom }}</td>
-				<td>{{ u.email }}</td>
-				<td><span *ngIf="u.status != 'user'">{{ u.status }}</span></td>
+			<tr *ngFor="let u of mapUsers|keyvalue">
+				<td>{{ u.value.nom }}</td>
+				<td>{{ u.value.prenom }}</td>
+				<td>{{ u.value.email }}</td>
+				<td><span *ngIf="u.value.statut != 'user'">{{ u.value.statut }}</span></td>
 			</tr>
 		</tbody>
 	</table>

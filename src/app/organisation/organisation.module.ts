@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { OrganisationRoutingModule } from './organisation-routing.module';
 import { AccueilComponent } from './pages/accueil/accueil.component';
@@ -19,7 +20,8 @@ import { OrganisationComponent } from './organisation/organisation.component';
   ],
   imports: [
     CommonModule,
-    OrganisationRoutingModule
+    OrganisationRoutingModule,
+    FormsModule
   ]
 })
 export class OrganisationModule { }

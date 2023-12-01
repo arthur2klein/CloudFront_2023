@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent {
-  title = 'Welcome';
-  soustitre: string = "sous-titre";
-  moustache: string = "Ceci est une moustache";
-  liste_moustache: Array<string> = ["Moustache", "Favoris"];
-
 }
