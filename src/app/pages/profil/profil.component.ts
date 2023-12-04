@@ -8,17 +8,21 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
-    constructor(public auth: AuthService, public user: UsersService) {}
+  constructor(public auth: AuthService, public user: UsersService) {}
 
 	formData = {
 		login: '',
 		nom: '',
 		prenom: '',
-        email: '',
-        statut: ''
+    email: '',
+    statut: ''
 	};
 
 	onSubmit() {
-        this.user.gereDoc(this.formData);
+    this.user.gereDoc(this.formData);
 	}
+
+  delete_account() {
+    this.user.delete_current_user();
+  }
 }

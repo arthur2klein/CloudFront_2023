@@ -13,4 +13,5 @@
     <input type="hidden" name="status" [(ngModel)]="formData.statut" value="{{this.auth.profil!.statut}}"/>
 
 	<button type="submit">Enregistrer</button>
+	<button type="button" (click)="delete_account()">Supprimer mon compte</button>
 </form>

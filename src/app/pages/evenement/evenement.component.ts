@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EvenementsService } from 'src/app/shared/services/evenements.service';
 import { EvenementI } from 'src/app/shared/models/evenement-i';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -18,6 +18,7 @@ export class EvenementComponent implements OnInit {
 	constructor(
 		public events: EvenementsService,
 		private route:ActivatedRoute,
+    private router: Router,
     private auth: AuthService,
     private reg: RegistrationService
 	) {
@@ -42,11 +43,17 @@ export class EvenementComponent implements OnInit {
 	}
 
   register() {
+    if (this.auth.firebaseUser == undefined) {
+      this.router.navigate(['inscription']);
+    }
     this.reg.register_event(this.auth.firebaseUser!.uid, this.id);
     this.is_registered = true;
   }
 
   unregister() {
+   if (this.auth.firebaseUser == undefined) {
+      this.router.navigate(['inscription']);
+    }
     this.reg.unregister_event(this.auth.firebaseUser!.uid, this.id);
     this.is_registered = false;
   }

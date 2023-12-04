@@ -21,6 +21,9 @@ export class GestionProfilsComponent {
     this.mapUsers = this.users.mapUsers;
   }
   change_role(user_id: string, $event: Event) {
-    this.users.change_role(user_id, ($event.target! as HTMLSelectElement).value);;
+    this.users.change_role(
+      user_id,
+      ($event.target! as HTMLSelectElement).value.split(": ")[1]
+    );
   }
   }

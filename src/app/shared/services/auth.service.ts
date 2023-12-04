@@ -78,4 +78,9 @@ export class AuthService {
       return null;
     });
   }
+
+  delete_current_user() {
+    this.firebaseUser!.delete();
+    this.firebaseUser = undefined;
+  }
 }

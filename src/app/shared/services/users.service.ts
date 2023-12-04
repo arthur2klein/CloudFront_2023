@@ -26,6 +26,12 @@ export class UsersService {
     })
   }
 
+  delete_current_user() {
+    this.supprimerDoc(this.auth.firebaseUser!.uid);
+    this.auth.profil = undefined;
+    this.auth.delete_current_user();
+  }
+
   gereDoc(profil: UsersI) {
     const monDoc = doc(this.store, 'users', this.auth.firebaseUser!.uid);
     setDoc(monDoc, {
@@ -59,8 +65,8 @@ export class UsersService {
     });
   }
 
-  supprimerDoc() {
-    const monDoc = doc(this.store, 'users', this.auth.firebaseUser!.uid);
+  supprimerDoc(id: string) {
+    const monDoc = doc(this.store, 'users', id);
     deleteDoc(monDoc);
   }
 
