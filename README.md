@@ -1,6 +1,33 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/LRm4bhIP)
 # CYTech 2023 Cloud Front feast - Gestionnaire d'événements
 
+## Informations sur mon projet  
+
+### Nom de l'élève
+
+KLEIN Arthur (ING3 ICC)  
+n° d'étudiant: 22208208  
+
+### Version d'Angular et node
+- node: 21.2,  
+- angular: 16.2.9.
+
+Dockerfile fourni
+
+### Comptes existants sur mon site 
+
+#### Utilisateur
+email: user@mail.com  
+mot de passe: password  
+
+#### Organisateur
+email: organ@mail.com  
+mot de passe: password  
+
+#### Administrateur
+email: admin@mail.com  
+mot de passe: password  
+
 ## Consignes pour la création de l'application notée
 
 ### Synthèse

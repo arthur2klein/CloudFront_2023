@@ -1,5 +1,5 @@
 # Angular
-FROM node
+FROM node:21.2
 RUN npm install -g @angular/cli
 
 # WORKSPACE
